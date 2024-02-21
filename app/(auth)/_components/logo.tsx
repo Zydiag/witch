@@ -21,7 +21,9 @@ export function Logo({ className }: { className?: string }) {
         />
       </div>
       <div className="flex flex-col items-center">
-        <p className={cn("text-xl font-semibold", font.className)}>Witch</p>
+        <p className={cn("text-xl font-semibold", font.className)}>
+          WitchCraft
+        </p>
         <p className={cn("text-sm text-muted-foreground", font.className)}>
           Let's Play
         </p>
