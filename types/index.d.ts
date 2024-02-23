@@ -16,6 +16,12 @@ interface UserItemProps {
   isLive?: boolean;
 }
 
+interface UserPageProps {
+  params: {
+    username: string;
+  };
+}
+
 interface UserAvatarProps extends VariantProps<typeof avatarSizes> {
   imageUrl: string;
   username: string;
