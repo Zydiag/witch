@@ -1,3 +1,4 @@
+import { SidebarStore } from "@/types";
 import { create } from "zustand";
 
 export const useSidebar = create<SidebarStore>((set) => ({
