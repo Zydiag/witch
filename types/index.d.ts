@@ -1,3 +1,4 @@
+import { Follow, User } from "@prisma/client";
 import { VariantProps } from "class-variance-authority";
 
 interface SidebarStore {
@@ -20,6 +21,15 @@ interface UserPageProps {
   params: {
     username: string;
   };
+}
+
+interface FollowingProps {
+  data: (Follow & { following: User })[];
+  // data: (Follow & {
+  //   following: User & {
+  //     stream: { isLive: boolean } | null;
+  //   };
+  // })[];
 }
 
 interface ActionProps {
