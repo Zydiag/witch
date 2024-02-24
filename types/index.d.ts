@@ -22,6 +22,11 @@ interface UserPageProps {
   };
 }
 
+interface ActionProps {
+  isFollowing: boolean;
+  userId: string;
+}
+
 interface UserAvatarProps extends VariantProps<typeof avatarSizes> {
   imageUrl: string;
   username: string;
