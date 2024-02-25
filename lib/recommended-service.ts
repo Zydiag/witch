@@ -30,6 +30,15 @@ export const getRecommended = async () => {
               },
             },
           },
+          {
+            NOT: {
+              blockedby: {
+                some: {
+                  blockedId: userId,
+                },
+              },
+            },
+          },
         ],
       },
       orderBy: {
