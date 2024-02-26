@@ -37,6 +37,19 @@ interface ActionProps {
   userId: string;
 }
 
+interface CreatorPageProps {
+  params: {
+    username: string;
+  };
+}
+
+interface CreatorLayoutProps {
+  children: React.ReactNode;
+  params: {
+    username: string;
+  };
+}
+
 interface UserAvatarProps extends VariantProps<typeof avatarSizes> {
   imageUrl: string;
   username: string;
@@ -45,3 +58,10 @@ interface UserAvatarProps extends VariantProps<typeof avatarSizes> {
 }
 
 interface UserAvatarSkeletonProps extends VariantProps<typeof avatarSizes> {}
+
+interface NavItemProps {
+  href: string;
+  icon: LucideIcon;
+  label: string;
+  isActive: boolean;
+}
