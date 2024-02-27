@@ -65,3 +65,9 @@ interface NavItemProps {
   label: string;
   isActive: boolean;
 }
+
+interface ToggleCardProps {
+  field: string;
+  label: string;
+  value: boolean;
+}
