@@ -71,3 +71,7 @@ interface ToggleCardProps {
   label: string;
   value: boolean;
 }
+
+interface StringOrNull {
+  value: string | null;
+}
