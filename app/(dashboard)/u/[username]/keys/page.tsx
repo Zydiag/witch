@@ -4,7 +4,7 @@ import { getSelf } from "@/lib/auth-service";
 
 import { URLCard } from "./_components/url-card";
 import { KeyCard } from "./_components/key-card";
-// import { ConnectModal } from "./_components/connect-modal";
+import { ConnectModal } from "./_components/connect-modal";
 import { getStreamByUserId } from "@/lib/stream-sevice";
 
 export default async function KeysPage() {
@@ -19,7 +19,7 @@ export default async function KeysPage() {
     <div className="p-6">
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-2xl font-bold">Keys & URLs</h1>
-        {/******** connect modal */}
+        <ConnectModal />
       </div>
       <div className="space-y-4">
         <URLCard value={stream.serverUrl} />

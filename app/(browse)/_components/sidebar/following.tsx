@@ -25,8 +25,7 @@ export function Following({ data }: FollowingProps) {
             key={follow.following.id}
             username={follow.following.username}
             imageUrl={follow.following.imageUrl}
-            isLive={true}
-            // isLive={follow.following.stream?.isLive}
+            isLive={follow.following.stream?.isLive}
           />
         ))}
       </ul>

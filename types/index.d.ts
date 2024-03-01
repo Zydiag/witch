@@ -1,4 +1,4 @@
-import { Follow, User } from "@prisma/client";
+import { Follow, Stream, User } from "@prisma/client";
 import { VariantProps } from "class-variance-authority";
 
 interface SidebarStore {
@@ -8,7 +8,7 @@ interface SidebarStore {
 }
 
 interface RecommendedProps {
-  data: User[];
+  data: (User & { stream: { isLive: boolean } | null })[];
 }
 
 interface UserItemProps {
@@ -24,12 +24,11 @@ interface UserPageProps {
 }
 
 interface FollowingProps {
-  data: (Follow & { following: User })[];
-  // data: (Follow & {
-  //   following: User & {
-  //     stream: { isLive: boolean } | null;
-  //   };
-  // })[];
+  data: (Follow & {
+    following: User & {
+      stream: { isLive: boolean } | null;
+    };
+  })[];
 }
 
 interface ActionProps {
@@ -74,4 +73,12 @@ interface ToggleCardProps {
 
 interface StringOrNull {
   value: string | null;
+}
+
+interface StreamPlayerProps {
+  user: User & {
+    stream: Stream | null;
+  };
+  stream: Stream;
+  isFollowing: boolean;
 }
