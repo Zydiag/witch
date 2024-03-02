@@ -82,3 +82,9 @@ interface StreamPlayerProps {
   stream: Stream;
   isFollowing: boolean;
 }
+
+interface VolumeControlProps {
+  onToggle: () => void;
+  onChange: (value: number) => void;
+  value: number;
+}

@@ -3,7 +3,7 @@ import { currentUser } from "@clerk/nextjs/server";
 
 import { getUserByUsername } from "@/lib/user-service";
 import { CreatorPageProps } from "@/types";
-// import { StreamPlayer } from "@/components/stream-player";
+import { StreamPlayer } from "@/components/stream-player";
 
 export default async function CreatorPage({
   params: { username },
