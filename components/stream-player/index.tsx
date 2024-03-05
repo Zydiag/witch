@@ -8,6 +8,7 @@ import { ChatToggle } from "./chat/chat-toggle";
 import { cn } from "@/lib/utils";
 import { Chat, ChatSkeleton } from "./chat";
 import { Header, HeaderSkeleton } from "./header";
+import { InfoCard } from "./info-card";
 
 export const StreamPlayer = ({
   user,
@@ -45,6 +46,12 @@ export const StreamPlayer = ({
             isFollowing={isFollowing}
             name={stream.name}
             viewerIdentity={identity}
+          />
+          <InfoCard
+            hostIdentity={user.id}
+            viewerIdentity={identity}
+            name={stream.name}
+            thumbnailUrl={stream.thumbnailUrl}
           />
         </div>
         <div className={cn("col-span-1", collapsed && "hidden")}>
