@@ -78,6 +78,9 @@ interface StringOrNull {
 interface StreamPlayerProps {
   user: User & {
     stream: Stream | null;
+    _count: {
+      followedby: number;
+    };
   };
   stream: Stream;
   isFollowing: boolean;
@@ -88,3 +91,39 @@ interface VolumeControlProps {
   onChange: (value: number) => void;
   value: number;
 }
+
+interface AboutCardProps {
+  hostName: string;
+  hostIdentity: string;
+  viewerIdentity: string;
+  bio: string | null;
+  followedByCount: number;
+}
+
+type CustomStream = {
+  id: string;
+  isChatEnabled: boolean;
+  isChatDelayed: boolean;
+  isChatFollowersOnly: boolean;
+  isLive: boolean;
+  thumbnailUrl: string | null;
+  name: string;
+};
+
+type CustomUser = {
+  id: string;
+  username: string;
+  bio: string | null;
+  stream: CustomStream | null;
+  imageUrl: string;
+  _count: {
+    followedby: number;
+  };
+};
+type BlockedUser = {
+  id: string;
+  userId: string;
+  imageUrl: string;
+  username: string;
+  createdAt: string;
+};

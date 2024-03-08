@@ -20,6 +20,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "WitchCraft",
   description: "Live streaming platform for witches not bitches",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

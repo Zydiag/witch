@@ -1,6 +1,6 @@
 "use client";
 import { useViewerToken } from "@/hooks/use-viewer-token";
-import { StreamPlayerProps } from "@/types";
+import { CustomStream, CustomUser } from "@/types";
 import { LiveKitRoom } from "@livekit/components-react";
 import { Video, VideoSkeleton } from "./video";
 import { useChatSidebar } from "@/store/use-chat-sidebar";
@@ -9,12 +9,17 @@ import { cn } from "@/lib/utils";
 import { Chat, ChatSkeleton } from "./chat";
 import { Header, HeaderSkeleton } from "./header";
 import { InfoCard } from "./info-card";
+import { AboutCard } from "./about";
 
 export const StreamPlayer = ({
   user,
   stream,
   isFollowing,
-}: StreamPlayerProps) => {
+}: {
+  user: CustomUser;
+  stream: CustomStream;
+  isFollowing: boolean;
+}) => {
   const { token, name, identity } = useViewerToken(user.id);
   const { collapsed } = useChatSidebar((state) => state);
 
@@ -52,6 +57,13 @@ export const StreamPlayer = ({
             viewerIdentity={identity}
             name={stream.name}
             thumbnailUrl={stream.thumbnailUrl}
+          />
+          <AboutCard
+            hostName={user.username}
+            hostIdentity={user.id}
+            viewerIdentity={identity}
+            bio={user.bio}
+            followedByCount={user._count.followedBy}
           />
         </div>
         <div className={cn("col-span-1", collapsed && "hidden")}>
