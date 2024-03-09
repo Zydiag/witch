@@ -21,7 +21,11 @@ export async function POST(req: Request) {
 
   const event = receiver.receive(body, authorization);
 
+  console.log("LiveKit Webhook Event:", event.event);
+  console.log("Ingress Info:", event.ingressInfo);
+
   if (event.event === "ingress_started") {
+    console.log("Updating stream to live:", event.ingressInfo?.ingressId);
     await db.stream.update({
       where: {
         ingressId: event.ingressInfo?.ingressId,
@@ -30,9 +34,11 @@ export async function POST(req: Request) {
         isLive: true,
       },
     });
+    console.log("Stream updated to live");
   }
 
   if (event.event === "ingress_ended") {
+    console.log("Updating stream to offline:", event.ingressInfo?.ingressId);
     await db.stream.update({
       where: {
         ingressId: event.ingressInfo?.ingressId,
@@ -41,6 +47,7 @@ export async function POST(req: Request) {
         isLive: false,
       },
     });
+    console.log("Stream updated to offline");
   }
 
   return new Response("Success!", { status: 200 });

@@ -5,12 +5,14 @@ import { SignInButton, UserButton } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
 import { currentUser } from "@clerk/nextjs/server";
+import { PricingButton } from "@/components/pricing-button";
 
 export async function Actions() {
   const user = await currentUser();
 
   return (
     <div className="flex items-center justify-end gap-x-2 ml-4 lg:ml-0">
+      <PricingButton />
       {!user && (
         <SignInButton>
           <Button variant="primary">Login</Button>
